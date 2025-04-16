@@ -43,28 +43,35 @@ class MainActivity : AppCompatActivity() {
 
         btnCalculateTotal.setOnClickListener { //when the user taps the button it calls calculateTotal to do the math
             CalculateTotal()
-
         }
     }
-    private fun CalculateTotal(){
-        val hoursStr = etHours.text.toString()
-           if (hoursStr.isEmpty()||hoursStr.toIntOrNull()==null ||hoursStr.toInt()<= 0) { // checks if the number of hours is valid and show warning if not
-               Toast.makeText(this, "please enter a valid number of hours",Toast.LENGTH_SHORT).show()
-               return
-           }
-        if (radioGroupTasks.checkedRadioButtonId==-1) { //makes sure a task is selected
-            Toast.makeText(this,"please select a task",Toast.LENGTH_SHORT).show()
+    private fun CalculateTotal() {
+        val hoursStr = etHours.text.toString() // checks if the number of hours is valid and show warning if not
+
+        if ( hoursStr.isEmpty()||hoursStr.toIntOrNull()== null ||hoursStr.toInt()<=0){
+            Toast.makeText(this, "please enter a valid number of hours", Toast.LENGTH_LONG).show()
+            return
+        }
+        if (radioGroupTasks.checkedRadioButtonId == -1){ //makes sure a task is selected
+            Toast.makeText(this,"please select a task",Toast.LENGTH_LONG).show()
             return
         }
         val hours = hoursStr.toInt()
-        var materialCost = 0
-        if (cbWood.isChecked)materialCost += 600
-        if (cbNails.isChecked)materialCost += 50
-        if (cbHinges.isChecked)materialCost += 40
+        var materialCost = 0 // warns the user if no material is selected
 
-        if (materialCost == 0) { // warns the user if no material is selected
-        val totalCost = materialCost * hours
-        tvTotalEstimation.text = "Total Estimated Cost: R$totalCost.00"
+        if (cbGlue.isChecked) materialCost += 20 //Adds up the selected material costs
+        if (cbWood.isChecked) materialCost += 600
+        if (cbNails.isChecked)materialCost += 30
+        if (cbHinges.isChecked) materialCost += 50
+
+        if (materialCost == 0) {
+            Toast.makeText(this,"please select at least one material",Toast.LENGTH_LONG).show()
+            return
+        } // Multiplies total material cost by the number of hours to ge the final project estimation
+        val totalCost=materialCost * hours
+           tvTotalEstimation.text ="Total Estimation:R$totalCost.00" // updates the results on the screen so that the user can see it
+
+
+        
     }
-
-} }
+}
