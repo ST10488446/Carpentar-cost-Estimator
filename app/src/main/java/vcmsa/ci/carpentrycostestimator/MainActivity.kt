@@ -15,6 +15,7 @@ import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
     private lateinit var radioGroupTasks:RadioGroup
+    private lateinit var cbGlue : CheckBox
     private lateinit var cbWood: CheckBox
     private lateinit var cbNails: CheckBox
     private lateinit var cbHinges: CheckBox
@@ -33,24 +34,25 @@ class MainActivity : AppCompatActivity() {
         }
         radioGroupTasks = findViewById(R.id.radioGroupTasks)
         cbWood = findViewById(R.id.cbWood)
+        cbGlue = findViewById(R.id.cbGlue)
         cbNails = findViewById(R.id.cbNails)
         cbHinges = findViewById(R.id.cbHinges)
         etHours = findViewById(R.id.etHours)
         btnCalculateTotal = findViewById(R.id.btnCalculateTotal)
         tvTotalEstimation = findViewById(R.id.tvTotalEstimation)
 
-        btnCalculateTotal.setOnClickListener {
+        btnCalculateTotal.setOnClickListener { //when the user taps the button it calls calculateTotal to do the math
             CalculateTotal()
 
         }
     }
     private fun CalculateTotal(){
         val hoursStr = etHours.text.toString()
-           if (hoursStr.isEmpty()||hoursStr.toIntOrNull()==null ||hoursStr.toInt()<= 0) {
+           if (hoursStr.isEmpty()||hoursStr.toIntOrNull()==null ||hoursStr.toInt()<= 0) { // checks if the number of hours is valid and show warning if not
                Toast.makeText(this, "please enter a valid number of hours",Toast.LENGTH_SHORT).show()
                return
            }
-        if (radioGroupTasks.checkedRadioButtonId==-1) {
+        if (radioGroupTasks.checkedRadioButtonId==-1) { //makes sure a task is selected
             Toast.makeText(this,"please select a task",Toast.LENGTH_SHORT).show()
             return
         }
@@ -60,12 +62,9 @@ class MainActivity : AppCompatActivity() {
         if (cbNails.isChecked)materialCost += 50
         if (cbHinges.isChecked)materialCost += 40
 
-        if (materialCost == 0) {
-            Toast.makeText(this,"please select at least one material",Toast.LENGTH_SHORT).show()
-            return
-        }
+        if (materialCost == 0) { // warns the user if no material is selected
         val totalCost = materialCost * hours
         tvTotalEstimation.text = "Total Estimated Cost: R$totalCost.00"
     }
 
-}
+} }

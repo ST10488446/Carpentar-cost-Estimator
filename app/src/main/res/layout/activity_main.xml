@@ -89,6 +89,13 @@
                 android:textSize="15sp" />
 
             <CheckBox
+                android:id="@+id/cbGlue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#E9AC75"
+                android:text="Glue" />
+
+            <CheckBox
                 android:id="@+id/cbWood"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
