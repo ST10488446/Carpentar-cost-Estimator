@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:background="@drawable/img"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/white"
+            android:backgroundTint="@color/white"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:text="Carpentry Cost Estimator"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:background="@color/white"
+            android:backgroundTint="@color/white"
+            android:hint="Select Task"
+            android:text="Select task"
+            android:textSize="15sp" />
+
+        <RadioGroup
+            android:id="@+id/radioGroupTasks"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="1dp"
+            android:orientation="vertical">
+
+            <RadioGroup
+                android:id="@+id/radioGroupTasks"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <RadioButton
+                android:id="@+id/rbInstallDoor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#E9AC75"
+                android:backgroundTint="#E9AC75"
+                android:text="Install Door"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/rbBuildShelf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#E9AC75"
+                android:backgroundTint="#E9AC75"
+                android:text="Build Shelf"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/rbAssembleFurniture"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#E9AC75"
+                android:text="Assemble Furniture"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:background="@color/white"
+                android:text="Select Materials"
+                android:textSize="15sp" />
+
+            <CheckBox
+                android:id="@+id/cbWood"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#E9AC75"
+                android:text=" Wood"
+                android:textSize="18sp" />
+
+            <CheckBox
+                android:id="@+id/cbNails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#E9AC75"
+                android:text="Nails"
+                android:textSize="18sp" />
+
+            <CheckBox
+                android:id="@+id/cbHinges"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#E9AC75"
+                android:text="Hinges "
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/etHours"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/white"
+                android:ems="10"
+                android:hint="Enter number of hours "
+                android:inputType="number" />
+
+            <Button
+                android:id="@+id/btnCalculateTotal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:backgroundTint="#E9AC75"
+                android:text="CalculateTotal"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/tvTotalEstimation"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_margin="16dp"
+                android:background="@color/white"
+                android:text="Total Estimation"
+                android:textSize="18sp" />
+
+        </RadioGroup>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
